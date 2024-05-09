@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'top' => 'homes#top'
   post 'lists' => 'lists#create'
   get 'lists' => 'lists#index'
-  get 'lists/:id/edit' => 'lists#edit', as: 'edit_list'
+  get 'lists/:id' => 'lists#show'
 end
