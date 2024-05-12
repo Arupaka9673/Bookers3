@@ -2,10 +2,10 @@
 
 <%= form_with model: @list, url: update_list_path(@list.id), method: :patch do |f| %>
 
-  <h4>タイトル</h4>
+  <h4>本のタイトル</h4>
   <%= f.text_field :title %>
   
-  <h4>本文</h4>
+  <h4>感想</h4>
   <%= f.text_area :body %>
   
   <%= f.submit '保存' %>

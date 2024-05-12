@@ -1,13 +1,13 @@
 <h1>投稿一覧</h1>
-
 <% @lists.each do |list| %>
 
-  <p>タイトル</p>
-  <span>
-    <%= list.title %>
-  </span>
-  
-  <span>
-    <%= link_to list.title, list_path(list.id) %>
-  </span>
+  <p>タイトル:<%= list.title %> 
+      <%= link_to "詳細へ", list_path(list.id) %> 
+      <%= link_to "削除", destroy_path(list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  </p>
+<% end %>
+
+<h1>新規投稿</h1>
+<% @lists.each do |list| %>
+<%= link_to "投稿する", new_path(list.id) %>
 <% end %>
