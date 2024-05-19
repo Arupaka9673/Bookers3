@@ -16,6 +16,7 @@
 require 'capybara/rspec'
 require 'formatter/category_formatter'
 #Capybara.javascript_driver = :webkit
+
 RSpec.configure do |config|
 	config.before(:each, type: :system) do
     #driven_by :selenium_chrome_headless

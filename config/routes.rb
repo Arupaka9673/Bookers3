@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root 'homes#top'
-  get 'lists/new' => 'lists#new'
-  post 'lists' => 'lists#create'
-  get 'lists' => 'lists#index'
-  get 'lists/:id' => 'lists#show', as: 'list'
-  get 'lists/:id/edit' => 'lists#edit', as: 'edit_list'
-  patch 'lists/:id' => 'lists#update', as: 'update_list'
-  delete 'lists/:id' => 'lists#destroy', as: 'destroy_list'
+  get 'books/new' => 'books#new'
+  post 'books' => 'books#create'
+  get 'books' => 'books#index'
+  get 'books/:id' => 'books#show', as: 'book'
+  get 'books/:id/edit' => 'books#edit', as: 'edit_book'
+  patch 'books/:id' => 'books#update', as: 'update_book'
+  delete 'books/:id' => 'books#destroy', as: 'destroy_book'
 end
