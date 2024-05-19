@@ -16,6 +16,17 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
+    
+    book = Book.find(params[:id])
+    book.update(book_params)
+    
+    if book.save
+      flash[:notice] = "successfully"
+      redirect_to books_path(book.id)
+    else
+      flash[:notice] = "error:failure"
+      render :update
+    end
   end
 
   def show
@@ -28,13 +39,14 @@ class BooksController < ApplicationController
   end
   
   def update
-    @book = Book.find(params[:id])
     book = Book.find(params[:id])
     book.update(book_params)
     
     if book.save
+      flash[:notice] = "successfully"
       redirect_to books_path(book.id)
     else
+      flash[:notice] = "error:failure"
       render :edit
     end
   end
