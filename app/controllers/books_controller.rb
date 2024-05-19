@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     
     if @book.save
       flash[:notice] = "successfully"
-      redirect_to books_path
+      redirect_to book_path(@book.id)
     else
       flash[:notice] = "error:failure"
       render :edit
