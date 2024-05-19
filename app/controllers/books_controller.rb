@@ -8,7 +8,7 @@ class BooksController < ApplicationController
       flash[:notice] = "successfully"
       redirect_to book_path(@book.id)
     else
-      flash[:notice] = "failure"
+      flash[:notice] = "error"
       render :index
     end
   end
@@ -27,12 +27,12 @@ class BooksController < ApplicationController
   end
   
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
+    @book = Book.find(params[:id])
+    @book.update(book_params)
     
-    if book.save
+    if @book.save
       flash[:notice] = "successfully"
-      redirect_to books_path(book.id)
+      redirect_to books_path
     else
       flash[:notice] = "error:failure"
       render :edit
@@ -40,6 +40,7 @@ class BooksController < ApplicationController
   end
   
   def destroy
+    @book = Book.find(params[:id])
     book = Book.find(params[:id])
     book.destroy
     flash[:notice] = "successfully"
